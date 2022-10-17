@@ -3,18 +3,57 @@
 <head>
 
     <?php
-    $nombres = ["Raul",
-                "Nico",
-                "Leonardo",
-                "Luciano"];
+     $peliculas =[
 
+             [
+             "nombre" =>  "Star Wars",
+              "director" => "George Lucas"],
+
+                    ["nombre" => "Lord of the rings",
+                    "director" => "Peter Jackson"],
+
+                    ["nombre" => "Dragon ball",
+                     "director" => "Akira Toriyama"],
+
+                    ["nombre" => "Top Gun",
+                     "director" => "Tony Scott"],
+
+
+                    [ "nombre" => "1917",
+                        "director" => "Sam Mendez"],
+
+
+                    ["nombre" => "Dunkerk",
+                            "director" => "Nolan"]
+
+     ]
     ?>
 
 
-    <meta charset="UTF-8">
-    <title>ESTO ES UN TITULO</title>
+    <title>LISTA DE PELICULAS</title>
 </head>
 <body>
-Hola <?php print $nombres[rand(0, count($nombres) - 1)] ?>
-</body>
-</html>
+
+<ul>
+    <?php FiltrarporDirector($peliculas,  "George Lucas");
+
+    ?>
+</ul>
+
+<ul>
+
+    <?php
+    function FiltrarPorDirector ($peliculas, $nombredelDirector)
+    {
+        foreach ($peliculas as $pelicula){
+
+            if ($pelicula ["director"] == $nombredelDirector) {
+
+            }
+            print "<li>" . $pelicula["director"];
+        }
+    }
+
+
+    ?>
+    </ul>
