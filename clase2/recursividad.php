@@ -2,13 +2,12 @@
 $hora = 0;
 $min = 0;
 $seg = 0;
-sumseg (255);
+sumseg (4999);
 echo " h:".$hora. " m:".$min. " h:".$seg;
 
     function sumseg($cants)
     {
         global $seg;
-        global $min;
         if ($cants >1)
         {
             sumseg($cants-1);
@@ -20,36 +19,32 @@ echo " h:".$hora. " m:".$min. " h:".$seg;
         else
         {
             $seg = 0;
-            $min++;
-}
+            sumMin(1);
+        }
     }
 
     function sumMin($canmin)
     {
         global $min;
-        if ($canmin >1)
-        {
-            sumMin($canmin-1);
+        if ($canmin > 1) {
+            sumMin($canmin - 1);
         }
-        if ($min<59)
-        {
-            sumseg(60);
-        }
-        else
-        {
-            $min=0;
+        if ($min < 59) {
+            $min++;
+        } else {
+            $min = 0;
             sumhora(1);
         }
-
-        function sumhora($canhora)
-        {
-            global $hora;
-            if ($canhora>1)
-            {
-                sumhora($canhora-1);
-            }
-            $hora++;
-        }
-
-
     }
+
+    function sumhora($canhora)
+    {
+        global $hora;
+        if ($canhora>1)
+        {
+            sumhora($canhora-1);
+        }
+        $hora++;
+    }
+
+
